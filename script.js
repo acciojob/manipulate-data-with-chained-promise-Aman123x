@@ -14,7 +14,7 @@ function filterOddNumbers(inputArray) {
   return new Promise((resolve) => {
     // Filter out odd numbers after 1 second
     setTimeout(() => {
-      const filteredArray = inputArray.filter((num) => num % 2 === 0);
+      const filteredArray = inputArray.filter((num) => num % 2 !== 0);
       resolve(filteredArray);
     }, 1000);
   });
