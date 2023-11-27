@@ -11,7 +11,7 @@ function manipulateArray(inputArray) {
 function filterOddNumbers(inputArray) {
   return new Promise((resolve) => {
     setTimeout(() => {
-      const filteredArray = inputArray.filter((num) => num % 2 === 0);
+      const filteredArray = inputArray.filter((num) => num % 2 !== 0);
       resolve(filteredArray);
     }, 1000);
   });
