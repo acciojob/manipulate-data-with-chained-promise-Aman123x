@@ -1,9 +1,7 @@
-//your JS code here. If required.
 // script.js
 
 function manipulateArray(inputArray) {
   return new Promise((resolve) => {
-    // Resolve the promise after 3 seconds with the manipulated array
     setTimeout(() => {
       resolve(inputArray);
     }, 3000);
@@ -12,9 +10,8 @@ function manipulateArray(inputArray) {
 
 function filterOddNumbers(inputArray) {
   return new Promise((resolve) => {
-    // Filter out odd numbers after 1 second
     setTimeout(() => {
-      const filteredArray = inputArray.filter((num) => num % 2 !== 0);
+      const filteredArray = inputArray.filter((num) => num % 2 === 0);
       resolve(filteredArray);
     }, 1000);
   });
@@ -22,7 +19,6 @@ function filterOddNumbers(inputArray) {
 
 function multiplyEvenNumbers(inputArray) {
   return new Promise((resolve) => {
-    // Multiply even numbers by 2 after 2 seconds
     setTimeout(() => {
       const multipliedArray = inputArray.map((num) =>
         num % 2 === 0 ? num * 2 : num
@@ -38,14 +34,17 @@ const inputArray = [1, 2, 3, 4];
 // Get the output div
 const outputDiv = document.getElementById("output");
 
+// Function to handle the final result and update the output div
+function updateOutput(resultArray) {
+  // Update the text of the output div with the final result
+  outputDiv.textContent = resultArray.join(", ");
+}
+
 // Call the functions in sequence using promise chaining
 manipulateArray(inputArray)
   .then(filterOddNumbers)
   .then(multiplyEvenNumbers)
-  .then((resultArray) => {
-    // Update the text of the output div with the final result
-    outputDiv.textContent = resultArray.join(", ");
-  })
+  .then(updateOutput) // Call the function to handle the final result
   .catch((error) => {
     console.error("Error:", error);
   });
